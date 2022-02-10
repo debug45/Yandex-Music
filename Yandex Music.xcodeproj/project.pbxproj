@@ -10,7 +10,6 @@
 		A50AE66527B5B4F900F01BFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50AE66427B5B4F900F01BFA /* AppDelegate.swift */; };
 		A50AE66727B5B4F900F01BFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50AE66627B5B4F900F01BFA /* ViewController.swift */; };
 		A50AE66927B5B4FA00F01BFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50AE66827B5B4FA00F01BFA /* Assets.xcassets */; };
-		A50AE66C27B5B4FA00F01BFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A50AE66A27B5B4FA00F01BFA /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,8 +17,7 @@
 		A50AE66427B5B4F900F01BFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A50AE66627B5B4F900F01BFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A50AE66827B5B4FA00F01BFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A50AE66B27B5B4FA00F01BFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A50AE66D27B5B4FA00F01BFA /* Yandex_Music.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Yandex_Music.entitlements; sourceTree = "<group>"; };
+		A50AE66D27B5B4FA00F01BFA /* List.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = List.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +53,7 @@
 				A50AE66427B5B4F900F01BFA /* AppDelegate.swift */,
 				A50AE66627B5B4F900F01BFA /* ViewController.swift */,
 				A50AE66827B5B4FA00F01BFA /* Assets.xcassets */,
-				A50AE66A27B5B4FA00F01BFA /* Main.storyboard */,
-				A50AE66D27B5B4FA00F01BFA /* Yandex_Music.entitlements */,
+				A50AE66D27B5B4FA00F01BFA /* List.entitlements */,
 			);
 			path = "Yandex Music";
 			sourceTree = "<group>";
@@ -98,11 +95,10 @@
 			};
 			buildConfigurationList = A50AE65C27B5B4F900F01BFA /* Build configuration list for PBXProject "Yandex Music" */;
 			compatibilityVersion = "Xcode 13.0";
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
-				Base,
+				ru,
 			);
 			mainGroup = A50AE65827B5B4F900F01BFA;
 			productRefGroup = A50AE66227B5B4F900F01BFA /* Products */;
@@ -120,7 +116,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A50AE66927B5B4FA00F01BFA /* Assets.xcassets in Resources */,
-				A50AE66C27B5B4FA00F01BFA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,17 +132,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		A50AE66A27B5B4FA00F01BFA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A50AE66B27B5B4FA00F01BFA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A50AE66E27B5B4FA00F01BFA /* Debug */ = {
@@ -201,7 +185,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -256,7 +240,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -268,20 +252,19 @@
 		A50AE67127B5B4FA00F01BFA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Yandex Music/Yandex_Music.entitlements";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon";
+				CODE_SIGN_ENTITLEMENTS = "Yandex Music/List.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "debug45.Yandex-Music";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -293,20 +276,19 @@
 		A50AE67227B5B4FA00F01BFA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Yandex Music/Yandex_Music.entitlements";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon";
+				CODE_SIGN_ENTITLEMENTS = "Yandex Music/List.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "debug45.Yandex-Music";
 				PRODUCT_NAME = "$(TARGET_NAME)";
