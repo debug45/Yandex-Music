@@ -9,4 +9,12 @@ import Cocoa
 
 @main final class AppDelegate: NSObject, NSApplicationDelegate {
     
+    @IBAction private func repositoryMenuItemDidSelect(_ sender: Any) {
+        guard let url = URL(string: "https://github.com/debug45/Yandex-Music") else {
+            return
+        }
+        
+        NSWorkspace.shared.open(url)
+    }
+    
 }

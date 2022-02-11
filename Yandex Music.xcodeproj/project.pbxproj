@@ -8,16 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		A50AE66527B5B4F900F01BFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50AE66427B5B4F900F01BFA /* AppDelegate.swift */; };
-		A50AE66727B5B4F900F01BFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50AE66627B5B4F900F01BFA /* ViewController.swift */; };
+		A50AE66727B5B4F900F01BFA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50AE66627B5B4F900F01BFA /* MainViewController.swift */; };
 		A50AE66927B5B4FA00F01BFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50AE66827B5B4FA00F01BFA /* Assets.xcassets */; };
+		A53E0B7827B646DE006B2253 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E0B7727B646DE006B2253 /* SettingsViewController.swift */; };
+		A570E48B27B6BF5500BF6E73 /* Full.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A570E48A27B6BF5500BF6E73 /* Full.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A50AE66127B5B4F900F01BFA /* Yandex Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yandex Music.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50AE66427B5B4F900F01BFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A50AE66627B5B4F900F01BFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A50AE66627B5B4F900F01BFA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A50AE66827B5B4FA00F01BFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A50AE66D27B5B4FA00F01BFA /* List.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = List.entitlements; sourceTree = "<group>"; };
+		A53E0B7727B646DE006B2253 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A570E48A27B6BF5500BF6E73 /* Full.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Full.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,10 @@
 			isa = PBXGroup;
 			children = (
 				A50AE66427B5B4F900F01BFA /* AppDelegate.swift */,
-				A50AE66627B5B4F900F01BFA /* ViewController.swift */,
+				A50AE66627B5B4F900F01BFA /* MainViewController.swift */,
+				A53E0B7727B646DE006B2253 /* SettingsViewController.swift */,
 				A50AE66827B5B4FA00F01BFA /* Assets.xcassets */,
+				A570E48A27B6BF5500BF6E73 /* Full.storyboard */,
 				A50AE66D27B5B4FA00F01BFA /* List.entitlements */,
 			);
 			path = "Yandex Music";
@@ -116,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A50AE66927B5B4FA00F01BFA /* Assets.xcassets in Resources */,
+				A570E48B27B6BF5500BF6E73 /* Full.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +133,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A50AE66727B5B4F900F01BFA /* ViewController.swift in Sources */,
+				A50AE66727B5B4F900F01BFA /* MainViewController.swift in Sources */,
+				A53E0B7827B646DE006B2253 /* SettingsViewController.swift in Sources */,
 				A50AE66527B5B4F900F01BFA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +267,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSMainStoryboardFile = Full;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -283,6 +292,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSMainStoryboardFile = Full;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
