@@ -28,11 +28,13 @@ final class MainViewController: NSViewController {
             let request = URLRequest(url: url)
             webView.load(request)
         }
+        
+        EventHelper.instance.addTarget(self)
     }
     
 }
 
-// MARK: WebKit UI Delegate
+// MARK: - WebKit UI Delegate
 
 extension MainViewController: WKUIDelegate {
     
@@ -42,6 +44,16 @@ extension MainViewController: WKUIDelegate {
         }
         
         return nil
+    }
+    
+}
+
+// MARK: - Event Helper Target
+
+extension MainViewController: EventHelper.Target {
+    
+    func handleMessage(_ message: EventHelper.Message) {
+        #warning("Not implemented")
     }
     
 }

@@ -12,6 +12,12 @@
 		A50AE66927B5B4FA00F01BFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50AE66827B5B4FA00F01BFA /* Assets.xcassets */; };
 		A53E0B7827B646DE006B2253 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E0B7727B646DE006B2253 /* SettingsViewController.swift */; };
 		A570E48B27B6BF5500BF6E73 /* Full.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A570E48A27B6BF5500BF6E73 /* Full.storyboard */; };
+		A570E4A927B700C400BF6E73 /* YMApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E4A827B700C400BF6E73 /* YMApplication.swift */; };
+		A570E4AD27B7020500BF6E73 /* MediaKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E4AC27B7020500BF6E73 /* MediaKey.swift */; };
+		A570E4AF27B7035900BF6E73 /* EventHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E4AE27B7035900BF6E73 /* EventHelper.swift */; };
+		A570E4B227B703C600BF6E73 /* WeakPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E4B127B703C600BF6E73 /* WeakPointer.swift */; };
+		A570E4B427B7042600BF6E73 /* EventHelper.Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E4B327B7042600BF6E73 /* EventHelper.Target.swift */; };
+		A570E4B627B7046600BF6E73 /* EventHelper.Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E4B527B7046600BF6E73 /* EventHelper.Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +28,12 @@
 		A50AE66D27B5B4FA00F01BFA /* List.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = List.entitlements; sourceTree = "<group>"; };
 		A53E0B7727B646DE006B2253 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A570E48A27B6BF5500BF6E73 /* Full.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Full.storyboard; sourceTree = "<group>"; };
+		A570E4A827B700C400BF6E73 /* YMApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMApplication.swift; sourceTree = "<group>"; };
+		A570E4AC27B7020500BF6E73 /* MediaKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKey.swift; sourceTree = "<group>"; };
+		A570E4AE27B7035900BF6E73 /* EventHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHelper.swift; sourceTree = "<group>"; };
+		A570E4B127B703C600BF6E73 /* WeakPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakPointer.swift; sourceTree = "<group>"; };
+		A570E4B327B7042600BF6E73 /* EventHelper.Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHelper.Target.swift; sourceTree = "<group>"; };
+		A570E4B527B7046600BF6E73 /* EventHelper.Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHelper.Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +72,30 @@
 				A50AE66827B5B4FA00F01BFA /* Assets.xcassets */,
 				A570E48A27B6BF5500BF6E73 /* Full.storyboard */,
 				A50AE66D27B5B4FA00F01BFA /* List.entitlements */,
+				A570E4A727B700AE00BF6E73 /* Framework */,
 			);
 			path = "Yandex Music";
+			sourceTree = "<group>";
+		};
+		A570E4A727B700AE00BF6E73 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				A570E4A827B700C400BF6E73 /* YMApplication.swift */,
+				A570E4AE27B7035900BF6E73 /* EventHelper.swift */,
+				A570E4B527B7046600BF6E73 /* EventHelper.Message.swift */,
+				A570E4B327B7042600BF6E73 /* EventHelper.Target.swift */,
+				A570E4B727B7065D00BF6E73 /* Utils */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
+		A570E4B727B7065D00BF6E73 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A570E4AC27B7020500BF6E73 /* MediaKey.swift */,
+				A570E4B127B703C600BF6E73 /* WeakPointer.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +167,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A570E4B627B7046600BF6E73 /* EventHelper.Message.swift in Sources */,
+				A570E4AF27B7035900BF6E73 /* EventHelper.swift in Sources */,
+				A570E4AD27B7020500BF6E73 /* MediaKey.swift in Sources */,
+				A570E4B427B7042600BF6E73 /* EventHelper.Target.swift in Sources */,
+				A570E4B227B703C600BF6E73 /* WeakPointer.swift in Sources */,
+				A570E4A927B700C400BF6E73 /* YMApplication.swift in Sources */,
 				A50AE66727B5B4F900F01BFA /* MainViewController.swift in Sources */,
 				A53E0B7827B646DE006B2253 /* SettingsViewController.swift in Sources */,
 				A50AE66527B5B4F900F01BFA /* AppDelegate.swift in Sources */,
@@ -268,7 +308,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSMainStoryboardFile = Full;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSPrincipalClass = "$(PRODUCT_MODULE_NAME).YMApplication";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -293,7 +333,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSMainStoryboardFile = Full;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				INFOPLIST_KEY_NSPrincipalClass = "$(PRODUCT_MODULE_NAME).YMApplication";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
