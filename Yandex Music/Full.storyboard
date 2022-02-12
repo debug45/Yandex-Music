@@ -60,18 +60,6 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Файл" id="dMs-cI-mzQ" userLabel="File">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Файл" id="bib-Uj-vzu" userLabel="Nested Menu">
-                                    <items>
-                                        <menuItem title="Закрыть" keyEquivalent="w" id="DVo-aG-piG" userLabel="Close">
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
                             <menuItem title="Правка" id="5QF-Oa-p0T" userLabel="Edit">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Правка" id="W48-6f-4Dl" userLabel="Nested Menu">
@@ -120,9 +108,9 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Вид" id="HyV-fh-RgO" userLabel="Nested Menu">
                                     <items>
-                                        <menuItem title="Перезагрузить" keyEquivalent="r" id="fhV-5h-lrS" userLabel="Reload">
+                                        <menuItem title="Перезагрузить интерфейс" keyEquivalent="r" id="fhV-5h-lrS" userLabel="Reload Interface">
                                             <connections>
-                                                <action selector="reloadMenuItemDidSelect:" target="Voe-Tx-rLC" id="wGQ-Te-Qqj"/>
+                                                <action selector="reloadInterfaceMenuItemDidSelect:" target="Voe-Tx-rLC" id="DBR-o9-UbB"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="pgR-7M-eNh"/>
@@ -139,6 +127,11 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Окно" systemMenu="window" id="Td7-aD-5lo" userLabel="Nested Menu">
                                     <items>
+                                        <menuItem title="Закрыть" keyEquivalent="w" id="DVo-aG-piG" userLabel="Close">
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Свернуть" keyEquivalent="m" id="OY7-WF-poV" userLabel="Minimize">
                                             <connections>
                                                 <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
@@ -164,7 +157,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Справка" systemMenu="help" id="F2S-fz-NVQ" userLabel="Nested Menu">
                                     <items>
-                                        <menuItem title="Репозиторий" id="FKE-Sm-Kum" userLabel="Repository">
+                                        <menuItem title="Репозиторий на GitHub" id="FKE-Sm-Kum" userLabel="Repository">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="repositoryMenuItemDidSelect:" target="Voe-Tx-rLC" id="JfG-lD-srQ"/>
@@ -241,7 +234,7 @@
             <objects>
                 <windowController showSeguePresentationStyle="single" id="f2M-Y7-Znt" userLabel="Settings Window Controller" sceneMemberID="viewController">
                     <window key="window" title="Настройки" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="Settings" tabbingMode="disallowed" id="Um4-fO-chZ" userLabel="Window">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <rect key="contentRect" x="255" y="323" width="356" height="96"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1728" height="1079"/>
                         <connections>

@@ -29,6 +29,7 @@ final class MainViewController: NSViewController {
         }
         
         isFirstAppearance = false
+        view.window?.delegate = self
         
         if let url = URL(string: "https://music.yandex.ru") {
             let request = URLRequest(url: url)
@@ -126,6 +127,17 @@ extension MainViewController: EventHelper.Target {
                     }
                 }
         }
+    }
+    
+}
+
+// MARK: - Window Delegate
+
+extension MainViewController: NSWindowDelegate {
+    
+    func windowShouldClose(_ sender: NSWindow) -> Bool {
+        NSApplication.shared.terminate(self)
+        return true
     }
     
 }

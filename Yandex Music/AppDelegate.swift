@@ -9,7 +9,7 @@ import Cocoa
 
 @main final class AppDelegate: NSObject, NSApplicationDelegate {
     
-    @IBAction private func reloadMenuItemDidSelect(_ sender: Any) {
+    @IBAction private func reloadInterfaceMenuItemDidSelect(_ sender: Any) {
         EventHelper.instance.report(.reloadMenuItemDidSelect)
     }
     
