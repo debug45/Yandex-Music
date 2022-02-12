@@ -11,6 +11,7 @@
 		A50AE66727B5B4F900F01BFA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50AE66627B5B4F900F01BFA /* MainViewController.swift */; };
 		A50AE66927B5B4FA00F01BFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50AE66827B5B4FA00F01BFA /* Assets.xcassets */; };
 		A53E0B7827B646DE006B2253 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53E0B7727B646DE006B2253 /* SettingsViewController.swift */; };
+		A55A79AC27B7C5EF0072BFAF /* TerminalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55A79AB27B7C5EF0072BFAF /* TerminalHelper.swift */; };
 		A570E48B27B6BF5500BF6E73 /* Full.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A570E48A27B6BF5500BF6E73 /* Full.storyboard */; };
 		A570E4A927B700C400BF6E73 /* YMApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E4A827B700C400BF6E73 /* YMApplication.swift */; };
 		A570E4AD27B7020500BF6E73 /* MediaKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E4AC27B7020500BF6E73 /* MediaKey.swift */; };
@@ -27,6 +28,7 @@
 		A50AE66827B5B4FA00F01BFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A50AE66D27B5B4FA00F01BFA /* List.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = List.entitlements; sourceTree = "<group>"; };
 		A53E0B7727B646DE006B2253 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A55A79AB27B7C5EF0072BFAF /* TerminalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalHelper.swift; sourceTree = "<group>"; };
 		A570E48A27B6BF5500BF6E73 /* Full.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Full.storyboard; sourceTree = "<group>"; };
 		A570E4A827B700C400BF6E73 /* YMApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YMApplication.swift; sourceTree = "<group>"; };
 		A570E4AC27B7020500BF6E73 /* MediaKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKey.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				A570E4AE27B7035900BF6E73 /* EventHelper.swift */,
 				A570E4B527B7046600BF6E73 /* EventHelper.Message.swift */,
 				A570E4B327B7042600BF6E73 /* EventHelper.Target.swift */,
+				A55A79AB27B7C5EF0072BFAF /* TerminalHelper.swift */,
 				A570E4B727B7065D00BF6E73 /* Utils */,
 			);
 			path = Framework;
@@ -174,6 +177,7 @@
 				A570E4B227B703C600BF6E73 /* WeakPointer.swift in Sources */,
 				A570E4A927B700C400BF6E73 /* YMApplication.swift in Sources */,
 				A50AE66727B5B4F900F01BFA /* MainViewController.swift in Sources */,
+				A55A79AC27B7C5EF0072BFAF /* TerminalHelper.swift in Sources */,
 				A53E0B7827B646DE006B2253 /* SettingsViewController.swift in Sources */,
 				A50AE66527B5B4F900F01BFA /* AppDelegate.swift in Sources */,
 			);

@@ -12,6 +12,8 @@ extension EventHelper {
         case reloadMenuItemDidSelect
         case mediaKeyDidPress(_ mediaKey: MediaKey)
         
+        case resetBrowser
+        
     }
     
 }

@@ -12,6 +12,8 @@ final class MainViewController: NSViewController {
     
     @IBOutlet private weak var webView: WKWebView!
     
+    private var isFirstAppearance = true
+    
     // MARK: Life Cycle
     
     override func viewDidLoad() {
@@ -19,15 +21,26 @@ final class MainViewController: NSViewController {
         configure()
     }
     
-    // MARK: Functions
-    
-    private func configure() {
-        webView.uiDelegate = self
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        guard isFirstAppearance else {
+            return
+        }
+        
+        isFirstAppearance = false
         
         if let url = URL(string: "https://music.yandex.ru") {
             let request = URLRequest(url: url)
             webView.load(request)
         }
+    }
+    
+    // MARK: Functions
+    
+    private func configure() {
+        webView.navigationDelegate = self
+        webView.uiDelegate = self
         
         EventHelper.instance.addTarget(self)
     }
@@ -38,6 +51,27 @@ final class MainViewController: NSViewController {
         """) { _, error in
             completion?(error == nil)
         }
+    }
+    
+}
+
+// MARK: - WebKit Navigation Delegate
+
+extension MainViewController: WKNavigationDelegate {
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
+        var result = WKNavigationActionPolicy.allow
+        
+        guard navigationAction.navigationType == .linkActivated, let url = navigationAction.request.url else {
+            return result
+        }
+        
+        if url.host != "music.yandex.ru" {
+            NSWorkspace.shared.open(url)
+            result = .cancel
+        }
+        
+        return result
     }
     
 }
@@ -80,6 +114,16 @@ extension MainViewController: EventHelper.Target {
                         clickWebButton(javaScriptClass: "player-controls__btn_prev")
                     case .nextTrack:
                         clickWebButton(javaScriptClass: "player-controls__btn_next")
+                }
+                
+            case .resetBrowser:
+                let webViewStore = WKWebsiteDataStore.default()
+                let dataTypes = WKWebsiteDataStore.allWebsiteDataTypes()
+                
+                webViewStore.fetchDataRecords(ofTypes: dataTypes) { records in
+                    webViewStore.removeData(ofTypes: dataTypes, for: records) {
+                        self.webView.reload()
+                    }
                 }
         }
     }

@@ -23,7 +23,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Настройки…" keyEquivalent="," id="BOF-NM-1cW" userLabel="Preferences"/>
+                                        <menuItem title="Настройки…" keyEquivalent="," id="BOF-NM-1cW" userLabel="Preferences">
+                                            <connections>
+                                                <segue destination="f2M-Y7-Znt" kind="show" identifier="" id="CBG-av-nHg"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Службы" id="NMo-om-nkz" userLabel="Services">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -178,17 +182,17 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Я_Музыка" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="562" y="0.0"/>
         </scene>
-        <!--Window Controller-->
+        <!--Main Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Я.Музыка" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA" userLabel="Main Window">
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" userLabel="Main Window Controller" sceneMemberID="viewController">
+                    <window key="window" title="Я.Музыка" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Main" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA" userLabel="Window">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="1024" height="768"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="495" height="464"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -199,18 +203,18 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="0.0" y="616"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="Я_Музыка" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl" userLabel="Root View">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <wkWebView wantsLayer="YES" allowsBackForwardNavigationGestures="YES" allowsLinkPreview="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flx-ml-Wwm">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -230,7 +234,74 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90" y="670"/>
+            <point key="canvasLocation" x="0.0" y="1522"/>
+        </scene>
+        <!--Settings Window Controller-->
+        <scene sceneID="vrw-xY-rnx">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="f2M-Y7-Znt" userLabel="Settings Window Controller" sceneMemberID="viewController">
+                    <window key="window" title="Настройки" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="Settings" tabbingMode="disallowed" id="Um4-fO-chZ" userLabel="Window">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+                        <rect key="contentRect" x="255" y="323" width="356" height="96"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1728" height="1079"/>
+                        <connections>
+                            <outlet property="delegate" destination="f2M-Y7-Znt" id="7Gh-rc-g9g"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="CPF-al-8lP" kind="relationship" relationship="window.shadowedContentViewController" id="j98-sj-O2W"/>
+                    </connections>
+                </windowController>
+                <customObject id="iSz-LA-qnD" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="789" y="280"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="G8K-ct-Qgs">
+            <objects>
+                <viewController id="CPF-al-8lP" customClass="SettingsViewController" customModule="Я_Музыка" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Zd2-Lv-W1K" userLabel="Root View">
+                        <rect key="frame" x="0.0" y="0.0" width="356" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FP9-iG-f4q" userLabel="System Music Suppression Checkbox">
+                                <rect key="frame" x="18" y="59" width="324" height="18"/>
+                                <buttonCell key="cell" type="check" title="Блокировать автозапуск системной «Музыки»" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="CwR-m4-zwz" userLabel="Nested Cell">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="systemMusicSuppressionCheckboxDidPress:" target="CPF-al-8lP" id="DhO-wl-KIE"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CUR-gj-NHX" userLabel="Reset Browser Button">
+                                <rect key="frame" x="13" y="13" width="231" height="32"/>
+                                <buttonCell key="cell" type="push" title="Сбросить встроенный браузер" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Z4-dR-1Ww" userLabel="Nested Cell">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="resetBrowserButtonDidPress:" target="CPF-al-8lP" id="Fiz-N3-ZdD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="CUR-gj-NHX" firstAttribute="bottom" secondItem="Zd2-Lv-W1K" secondAttribute="bottom" constant="-20" id="3Km-XX-Pma"/>
+                            <constraint firstItem="CUR-gj-NHX" firstAttribute="top" secondItem="FP9-iG-f4q" secondAttribute="bottom" constant="20" id="DeZ-jd-qMz"/>
+                            <constraint firstItem="CUR-gj-NHX" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Zd2-Lv-W1K" secondAttribute="trailing" constant="-20" id="HWQ-Po-aFy"/>
+                            <constraint firstItem="FP9-iG-f4q" firstAttribute="top" secondItem="Zd2-Lv-W1K" secondAttribute="top" constant="20" id="XHj-4B-ZU7"/>
+                            <constraint firstItem="FP9-iG-f4q" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Zd2-Lv-W1K" secondAttribute="trailing" constant="-14" id="h95-T2-jz9"/>
+                            <constraint firstItem="CUR-gj-NHX" firstAttribute="leading" secondItem="Zd2-Lv-W1K" secondAttribute="leading" constant="20" id="nkK-Ip-pWV"/>
+                            <constraint firstItem="FP9-iG-f4q" firstAttribute="leading" secondItem="Zd2-Lv-W1K" secondAttribute="leading" constant="20" id="yBT-Zw-w85"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="systemMusicSuppressionCheckbox" destination="FP9-iG-f4q" id="nEa-qm-whe"/>
+                    </connections>
+                </viewController>
+                <customObject id="jVA-Sd-hc5" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="789" y="514"/>
         </scene>
     </scenes>
 </document>
