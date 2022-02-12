@@ -9,7 +9,7 @@
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
-                <application id="hnw-xV-0zn" customClass="YMApplication" customModule="Yandex_Music" customModuleProvider="target" sceneMemberID="viewController">
+                <application id="hnw-xV-0zn" customClass="YMApplication" customModule="Я_Музыка" customModuleProvider="target" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
                             <menuItem title="Я.Музыка" id="1Xt-HY-uBw" userLabel="App">
@@ -116,6 +116,12 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Вид" id="HyV-fh-RgO" userLabel="Nested Menu">
                                     <items>
+                                        <menuItem title="Перезагрузить" keyEquivalent="r" id="fhV-5h-lrS" userLabel="Reload">
+                                            <connections>
+                                                <action selector="reloadMenuItemDidSelect:" target="Voe-Tx-rLC" id="wGQ-Te-Qqj"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="pgR-7M-eNh"/>
                                         <menuItem title="Перейти в полноэкранный режим" keyEquivalent="f" id="4J7-dP-txa" userLabel="Enter Full Screen">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                             <connections>
@@ -169,7 +175,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Yandex_Music" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Я_Музыка" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
@@ -198,7 +204,7 @@
         <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="Yandex_Music" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="Я_Музыка" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl" userLabel="Root View">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>

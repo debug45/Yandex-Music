@@ -9,6 +9,7 @@ extension EventHelper {
     
     enum Message {
         
+        case reloadMenuItemDidSelect
         case mediaKeyDidPress(_ mediaKey: MediaKey)
         
     }

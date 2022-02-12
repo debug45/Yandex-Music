@@ -21,7 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A50AE66127B5B4F900F01BFA /* Yandex Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yandex Music.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A50AE66127B5B4F900F01BFA /* Я.Музыка.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Я.Музыка.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50AE66427B5B4F900F01BFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A50AE66627B5B4F900F01BFA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A50AE66827B5B4FA00F01BFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		A50AE66227B5B4F900F01BFA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A50AE66127B5B4F900F01BFA /* Yandex Music.app */,
+				A50AE66127B5B4F900F01BFA /* Я.Музыка.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,9 +101,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A50AE66027B5B4F900F01BFA /* Yandex Music */ = {
+		A50AE66027B5B4F900F01BFA /* Я.Музыка */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A50AE67027B5B4FA00F01BFA /* Build configuration list for PBXNativeTarget "Yandex Music" */;
+			buildConfigurationList = A50AE67027B5B4FA00F01BFA /* Build configuration list for PBXNativeTarget "Я.Музыка" */;
 			buildPhases = (
 				A50AE65D27B5B4F900F01BFA /* Sources */,
 				A50AE65E27B5B4F900F01BFA /* Frameworks */,
@@ -113,9 +113,9 @@
 			);
 			dependencies = (
 			);
-			name = "Yandex Music";
+			name = "Я.Музыка";
 			productName = "Yandex Music";
-			productReference = A50AE66127B5B4F900F01BFA /* Yandex Music.app */;
+			productReference = A50AE66127B5B4F900F01BFA /* Я.Музыка.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -145,7 +145,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A50AE66027B5B4F900F01BFA /* Yandex Music */,
+				A50AE66027B5B4F900F01BFA /* Я.Музыка */,
 			);
 		};
 /* End PBXProject section */
@@ -359,7 +359,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A50AE67027B5B4FA00F01BFA /* Build configuration list for PBXNativeTarget "Yandex Music" */ = {
+		A50AE67027B5B4FA00F01BFA /* Build configuration list for PBXNativeTarget "Я.Музыка" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A50AE67127B5B4FA00F01BFA /* Debug */,

@@ -32,6 +32,14 @@ final class MainViewController: NSViewController {
         EventHelper.instance.addTarget(self)
     }
     
+    private func clickWebButton(javaScriptClass: String, completion: ((Bool) -> Void)? = nil) {
+        webView.evaluateJavaScript("""
+            document.querySelector('.\(javaScriptClass)').click();
+        """) { _, error in
+            completion?(error == nil)
+        }
+    }
+    
 }
 
 // MARK: - WebKit UI Delegate
@@ -53,7 +61,27 @@ extension MainViewController: WKUIDelegate {
 extension MainViewController: EventHelper.Target {
     
     func handleMessage(_ message: EventHelper.Message) {
-        #warning("Not implemented")
+        switch message {
+            case .reloadMenuItemDidSelect:
+                webView.reload()
+                
+            case let .mediaKeyDidPress(mediaKey):
+                switch mediaKey {
+                    case .playPause:
+                        clickWebButton(javaScriptClass: "player-controls__btn_play") { result in
+                            guard !result else {
+                                return
+                            }
+                            
+                            self.clickWebButton(javaScriptClass: "player-controls__btn_pause")
+                        }
+                        
+                    case .previousTrack:
+                        clickWebButton(javaScriptClass: "player-controls__btn_prev")
+                    case .nextTrack:
+                        clickWebButton(javaScriptClass: "player-controls__btn_next")
+                }
+        }
     }
     
 }
