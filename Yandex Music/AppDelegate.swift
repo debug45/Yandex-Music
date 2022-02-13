@@ -11,6 +11,17 @@ import Cocoa
     
     // MARK: Life Cycle
     
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        UpdateHelper.checkNewVersionAvailability()
+        
+        guard StorageHelper.isFirstLaunch != false else {
+            return
+        }
+        
+        StorageHelper.isFirstLaunch = false
+        TerminalHelper.updateSystemMusicAppLaunchAgent(isLoaded: false)
+    }
+    
     func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
         let menu = NSMenu()
         
@@ -33,10 +44,7 @@ import Cocoa
     }
     
     @IBAction private func codeRepositoryMenuBarItemDidSelect(_ sender: Any) {
-        guard let url = URL(string: "https://github.com/debug45/Yandex-Music") else {
-            return
-        }
-        
+        let url = URL(string: "https://github.com/debug45/Yandex-Music")!
         NSWorkspace.shared.open(url)
     }
     

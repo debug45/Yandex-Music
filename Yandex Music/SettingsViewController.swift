@@ -17,12 +17,7 @@ final class SettingsViewController: NSViewController {
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        
-        if let output = TerminalHelper.runCommand("""
-            launchctl list
-        """) {
-            systemMusicSuppressionCheckbox.state = !output.contains("com.apple.rcd") ? .on : .off
-        }
+        systemMusicSuppressionCheckbox.state = TerminalHelper.checkIsSystemMusicAppLaunchAgentLoaded() == false ? .on : .off
         
         guard isFirstAppearance else {
             return
@@ -35,21 +30,7 @@ final class SettingsViewController: NSViewController {
     // MARK: Builder Actions
     
     @IBAction private func systemMusicSuppressionCheckboxDidPress(_ sender: Any) {
-        let verdict: String
-        
-        switch systemMusicSuppressionCheckbox.state {
-            case .on:
-                verdict = "unload"
-            case .off:
-                verdict = "load"
-                
-            default:
-                return
-        }
-        
-        _ = TerminalHelper.runCommand("""
-            launchctl \(verdict) -w /System/Library/LaunchAgents/com.apple.rcd.plist
-        """)
+        TerminalHelper.updateSystemMusicAppLaunchAgent(isLoaded: systemMusicSuppressionCheckbox.state == .off)
     }
     
     @IBAction private func resetBuiltInBrowserButtonDidPress(_ sender: Any) {

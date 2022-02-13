@@ -19,6 +19,9 @@
 		A570E4B227B703C600BF6E73 /* WeakPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E4B127B703C600BF6E73 /* WeakPointer.swift */; };
 		A570E4B427B7042600BF6E73 /* EventHelper.Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E4B327B7042600BF6E73 /* EventHelper.Target.swift */; };
 		A570E4B627B7046600BF6E73 /* EventHelper.Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E4B527B7046600BF6E73 /* EventHelper.Message.swift */; };
+		A5C26A4D27B910060078A610 /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C26A4C27B910060078A610 /* StorageHelper.swift */; };
+		A5C26A5027B911300078A610 /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C26A4F27B911300078A610 /* Bool.swift */; };
+		A5C26A5227B917290078A610 /* UpdateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C26A5127B917290078A610 /* UpdateHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		A570E4B127B703C600BF6E73 /* WeakPointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakPointer.swift; sourceTree = "<group>"; };
 		A570E4B327B7042600BF6E73 /* EventHelper.Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHelper.Target.swift; sourceTree = "<group>"; };
 		A570E4B527B7046600BF6E73 /* EventHelper.Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHelper.Message.swift; sourceTree = "<group>"; };
+		A5C26A4C27B910060078A610 /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
+		A5C26A4F27B911300078A610 /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
+		A5C26A5127B917290078A610 /* UpdateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +92,10 @@
 				A570E4AE27B7035900BF6E73 /* EventHelper.swift */,
 				A570E4B527B7046600BF6E73 /* EventHelper.Message.swift */,
 				A570E4B327B7042600BF6E73 /* EventHelper.Target.swift */,
+				A5C26A4C27B910060078A610 /* StorageHelper.swift */,
 				A55A79AB27B7C5EF0072BFAF /* TerminalHelper.swift */,
+				A5C26A5127B917290078A610 /* UpdateHelper.swift */,
+				A5C26A4E27B911250078A610 /* Extensions */,
 				A570E4B727B7065D00BF6E73 /* Utils */,
 			);
 			path = Framework;
@@ -99,6 +108,14 @@
 				A570E4B127B703C600BF6E73 /* WeakPointer.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		A5C26A4E27B911250078A610 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A5C26A4F27B911300078A610 /* Bool.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,8 +190,11 @@
 				A570E4B627B7046600BF6E73 /* EventHelper.Message.swift in Sources */,
 				A570E4AF27B7035900BF6E73 /* EventHelper.swift in Sources */,
 				A570E4AD27B7020500BF6E73 /* MediaKey.swift in Sources */,
+				A5C26A5227B917290078A610 /* UpdateHelper.swift in Sources */,
 				A570E4B427B7042600BF6E73 /* EventHelper.Target.swift in Sources */,
 				A570E4B227B703C600BF6E73 /* WeakPointer.swift in Sources */,
+				A5C26A5027B911300078A610 /* Bool.swift in Sources */,
+				A5C26A4D27B910060078A610 /* StorageHelper.swift in Sources */,
 				A570E4A927B700C400BF6E73 /* YMApplication.swift in Sources */,
 				A50AE66727B5B4F900F01BFA /* MainViewController.swift in Sources */,
 				A55A79AC27B7C5EF0072BFAF /* TerminalHelper.swift in Sources */,
@@ -308,7 +328,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Yandex Music/List.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSMainStoryboardFile = Full;
@@ -333,7 +353,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Yandex Music/List.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_NSMainStoryboardFile = Full;

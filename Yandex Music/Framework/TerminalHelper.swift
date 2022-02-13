@@ -15,7 +15,25 @@ final class TerminalHelper {
     
     // MARK: Functions
     
-    static func runCommand(_ command: String) -> String? {
+    static func checkIsSystemMusicAppLaunchAgentLoaded() -> Bool? {
+        if let output = TerminalHelper.runCommand("""
+            launchctl list
+        """) {
+            return output.contains("com.apple.rcd")
+        }
+        
+        return nil
+    }
+    
+    static func updateSystemMusicAppLaunchAgent(isLoaded: Bool) {
+        let verdict = isLoaded ? "load" : "unload"
+        
+        _ = TerminalHelper.runCommand("""
+            launchctl \(verdict) -w /System/Library/LaunchAgents/com.apple.rcd.plist
+        """)
+    }
+    
+    private static func runCommand(_ command: String) -> String? {
         let process = Process()
         
         process.arguments = ["-c", command]
