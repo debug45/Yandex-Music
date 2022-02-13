@@ -108,9 +108,9 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Вид" id="HyV-fh-RgO" userLabel="Nested Menu">
                                     <items>
-                                        <menuItem title="Перезагрузить интерфейс" keyEquivalent="r" id="fhV-5h-lrS" userLabel="Reload Interface">
+                                        <menuItem title="Перезагрузить веб-интерфейс" keyEquivalent="r" id="fhV-5h-lrS" userLabel="Reload Web Interface">
                                             <connections>
-                                                <action selector="reloadInterfaceMenuItemDidSelect:" target="Voe-Tx-rLC" id="DBR-o9-UbB"/>
+                                                <action selector="reloadWebInterfaceMenuBarItemDidSelect:" target="Voe-Tx-rLC" id="NT2-br-Ysa"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="pgR-7M-eNh"/>
@@ -157,10 +157,10 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Справка" systemMenu="help" id="F2S-fz-NVQ" userLabel="Nested Menu">
                                     <items>
-                                        <menuItem title="Репозиторий на GitHub" id="FKE-Sm-Kum" userLabel="Repository">
+                                        <menuItem title="Репозиторий на GitHub" id="FKE-Sm-Kum" userLabel="Code Repository">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="repositoryMenuItemDidSelect:" target="Voe-Tx-rLC" id="JfG-lD-srQ"/>
+                                                <action selector="codeRepositoryMenuBarItemDidSelect:" target="Voe-Tx-rLC" id="kFk-Vq-sCr"/>
                                             </connections>
                                         </menuItem>
                                     </items>

@@ -97,10 +97,10 @@ extension MainViewController: EventHelper.Target {
     
     func handleMessage(_ message: EventHelper.Message) {
         switch message {
-            case .reloadMenuItemDidSelect:
+            case .reloadWebInterfaceMenuBarItemDidSelect:
                 webView.reload()
                 
-            case let .mediaKeyDidPress(mediaKey):
+            case let .globalMediaKeyDidPress(mediaKey):
                 switch mediaKey {
                     case .playPause:
                         clickWebButton(javaScriptClass: "player-controls__btn_play") { result in
@@ -117,7 +117,7 @@ extension MainViewController: EventHelper.Target {
                         clickWebButton(javaScriptClass: "player-controls__btn_next")
                 }
                 
-            case .resetBrowser:
+            case .resetBuiltInBrowser:
                 let webViewStore = WKWebsiteDataStore.default()
                 let dataTypes = WKWebsiteDataStore.allWebsiteDataTypes()
                 

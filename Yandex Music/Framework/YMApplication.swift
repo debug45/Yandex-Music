@@ -15,7 +15,7 @@ final class YMApplication: NSApplication {
             let flags = event.data1 & 0x0000FFFF
             
             if (flags & 0xFF00) >> 8 == 0xA, let mediaKey = MediaKey(systemCode: keyCode) {
-                let message = EventHelper.Message.mediaKeyDidPress(mediaKey)
+                let message = EventHelper.Message.globalMediaKeyDidPress(mediaKey)
                 EventHelper.instance.report(message)
             }
         }

@@ -53,7 +53,7 @@ final class SettingsViewController: NSViewController {
     }
     
     @IBAction private func resetBrowserButtonDidPress(_ sender: Any) {
-        EventHelper.instance.report(.resetBrowser)
+        EventHelper.instance.report(.resetBuiltInBrowser)
     }
     
 }

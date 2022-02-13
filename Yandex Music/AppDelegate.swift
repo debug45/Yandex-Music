@@ -9,11 +9,11 @@ import Cocoa
 
 @main final class AppDelegate: NSObject, NSApplicationDelegate {
     
-    @IBAction private func reloadInterfaceMenuItemDidSelect(_ sender: Any) {
-        EventHelper.instance.report(.reloadMenuItemDidSelect)
+    @IBAction private func reloadWebInterfaceMenuBarItemDidSelect(_ sender: Any) {
+        EventHelper.instance.report(.reloadWebInterfaceMenuBarItemDidSelect)
     }
     
-    @IBAction private func repositoryMenuItemDidSelect(_ sender: Any) {
+    @IBAction private func codeRepositoryMenuBarItemDidSelect(_ sender: Any) {
         guard let url = URL(string: "https://github.com/debug45/Yandex-Music") else {
             return
         }
