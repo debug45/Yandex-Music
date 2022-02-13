@@ -12,6 +12,9 @@ final class MainViewController: NSViewController {
     
     @IBOutlet private weak var webView: WKWebView!
     
+    @IBOutlet private weak var loadingIndicator: NSProgressIndicator!
+    @IBOutlet private weak var errorView: NSView!
+    
     private var isFirstAppearance = true
     
     // MARK: Life Cycle
@@ -29,7 +32,9 @@ final class MainViewController: NSViewController {
         }
         
         isFirstAppearance = false
+        
         view.window?.delegate = self
+        loadingIndicator.startAnimation(self)
         
         if let url = URL(string: "https://music.yandex.ru") {
             let request = URLRequest(url: url)
@@ -44,6 +49,14 @@ final class MainViewController: NSViewController {
         webView.uiDelegate = self
         
         EventHelper.instance.addTarget(self)
+    }
+    
+    private func reloadWebView() {
+        webView.isHidden = true
+        errorView.isHidden = true
+        
+        loadingIndicator.startAnimation(self)
+        webView.reload()
     }
     
     private func clickWebButton(javaScriptClass: String, completion: ((Bool) -> Void)? = nil) {
@@ -67,12 +80,24 @@ extension MainViewController: WKNavigationDelegate {
             return result
         }
         
-        if url.host != "music.yandex.ru" {
+        if !["music.yandex.ru", "passport.yandex.ru"].contains(url.host) {
             NSWorkspace.shared.open(url)
             result = .cancel
         }
         
         return result
+    }
+    
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        loadingIndicator.stopAnimation(self)
+        webView.isHidden = false
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        loadingIndicator.stopAnimation(self)
+        webView.isHidden = true
+        
+        errorView.isHidden = false
     }
     
 }
@@ -98,7 +123,7 @@ extension MainViewController: EventHelper.Target {
     func handleMessage(_ message: EventHelper.Message) {
         switch message {
             case .reloadWebInterfaceMenuBarItemDidSelect:
-                webView.reload()
+                reloadWebView()
                 
             case let .globalMediaKeyDidPress(mediaKey):
                 switch mediaKey {
@@ -123,7 +148,7 @@ extension MainViewController: EventHelper.Target {
                 
                 webViewStore.fetchDataRecords(ofTypes: dataTypes) { records in
                     webViewStore.removeData(ofTypes: dataTypes, for: records) {
-                        self.webView.reload()
+                        self.reloadWebView()
                     }
                 }
         }
