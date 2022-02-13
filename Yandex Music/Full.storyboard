@@ -184,7 +184,7 @@
                 <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" userLabel="Main Window Controller" sceneMemberID="viewController">
                     <window key="window" title="Я.Музыка" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Main" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA" userLabel="Window">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="1024" height="768"/>
+                        <rect key="contentRect" x="196" y="240" width="1024" height="720"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="495" height="464"/>
                         <connections>
@@ -197,28 +197,28 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="616"/>
+            <point key="canvasLocation" x="0.0" y="592"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="Я_Музыка" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl" userLabel="Root View">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="720"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <wkWebView hidden="YES" wantsLayer="YES" allowsBackForwardNavigationGestures="YES" allowsLinkPreview="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Flx-ml-Wwm">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="720"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <progressIndicator maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="0oi-aK-zVJ" userLabel="Loading Indicator">
-                                <rect key="frame" x="496" y="368" width="32" height="32"/>
+                                <rect key="frame" x="496" y="344" width="32" height="32"/>
                             </progressIndicator>
                             <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKb-WA-ar0" userLabel="Error View">
-                                <rect key="frame" x="317" y="332" width="390" height="104"/>
+                                <rect key="frame" x="317" y="308" width="390" height="104"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyC-Mp-MZh" userLabel="Title Label">
                                         <rect key="frame" x="18" y="51" width="354" height="33"/>
@@ -267,7 +267,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="1522"/>
+            <point key="canvasLocation" x="0.0" y="1450"/>
         </scene>
         <!--Settings Window Controller-->
         <scene sceneID="vrw-xY-rnx">
