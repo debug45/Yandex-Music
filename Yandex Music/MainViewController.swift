@@ -15,6 +15,9 @@ final class MainViewController: NSViewController {
     @IBOutlet private weak var loadingIndicator: NSProgressIndicator!
     @IBOutlet private weak var errorView: NSView!
     
+    private let homePageURL = URL(string: "https://music.yandex.ru")!
+    private let redirectFromLoginToSettingsTraits = ["music.yandex.ru/settings", "from-passport"]
+    
     private var isFirstAppearance = true
     
     // MARK: Life Cycle
@@ -36,10 +39,8 @@ final class MainViewController: NSViewController {
         view.window?.delegate = self
         loadingIndicator.startAnimation(self)
         
-        if let url = URL(string: "https://music.yandex.ru") {
-            let request = URLRequest(url: url)
-            webView.load(request)
-        }
+        let request = URLRequest(url: homePageURL)
+        webView.load(request)
     }
     
     // MARK: Functions
@@ -76,13 +77,29 @@ extension MainViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
         var result = WKNavigationActionPolicy.allow
         
-        guard navigationAction.navigationType == .linkActivated, let url = navigationAction.request.url else {
+        guard let url = navigationAction.request.url else {
             return result
         }
         
-        if !["music.yandex.ru", "passport.yandex.ru"].contains(url.host) {
-            NSWorkspace.shared.open(url)
-            result = .cancel
+        switch navigationAction.navigationType {
+            case .linkActivated:
+                if !["music.yandex.ru", "passport.yandex.ru"].contains(url.host) {
+                    NSWorkspace.shared.open(url)
+                    result = .cancel
+                }
+                
+            case .formSubmitted:
+                if redirectFromLoginToSettingsTraits.allSatisfy({ url.absoluteString.contains($0) }) {
+                    DispatchQueue.main.async {
+                        let request = URLRequest(url: self.homePageURL)
+                        webView.load(request)
+                    }
+                    
+                    result = .cancel
+                }
+                
+            default:
+                break
         }
         
         return result
@@ -94,6 +111,12 @@ extension MainViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        let error = error as NSError
+        
+        if error.code == 102, let url = error.userInfo["NSErrorFailingURLKey"] as? URL, redirectFromLoginToSettingsTraits.allSatisfy({ url.absoluteString.contains($0) }) {
+            return
+        }
+        
         loadingIndicator.stopAnimation(self)
         webView.isHidden = true
         
