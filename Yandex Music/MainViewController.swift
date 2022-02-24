@@ -158,7 +158,8 @@ extension MainViewController: WKNavigationDelegate {
                 });
 
                 externalAPI.on(externalAPI.EVENT_PROGRESS, () => {
-                    const progress = externalAPI.getProgress({
+                    const progress = externalAPI.getProgress();
+                    navigator.mediaSession.setPositionState({
                         duration: progress.duration,
                         playbackRate: externalAPI.getSpeed(),
                         position: progress.position
