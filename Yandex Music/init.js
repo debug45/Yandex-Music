@@ -1,57 +1,81 @@
-if ("mediaSession" in navigator && externalAPI) {
-    navigator.mediaSession.setActionHandler("play", () => {
+(function () {
+    if (!"mediaSession" in navigator) return;
+    if (!externalAPI) return;
+
+    const { mediaSession } = navigator;
+
+    const handlePlay = () => {
         externalAPI.togglePause(false);
-    });
-    navigator.mediaSession.setActionHandler("pause", () => {
-        externalAPI.togglePause(true);
-    });
-    navigator.mediaSession.setActionHandler("seekto", ({ seekTime }) => {
-        externalAPI.setPosition(seekTime);
-    });
-    const updateControls = () => {
-        const controls = externalAPI.getControls();
-        navigator.mediaSession.setActionHandler(
-            "previoustrack",
-            controls.prev ? externalAPI.prev : null,
-        );
-        navigator.mediaSession.setActionHandler(
-            "nexttrack",
-            controls.next ? externalAPI.next : null,
-        );
     };
-    externalAPI.on(externalAPI.EVENT_CONTROLS, updateControls);
-    updateControls();
+    const handlePause = () => {
+        externalAPI.togglePause(true);
+    };
+    const handlePrev = () => {
+        const { prev } = externalAPI.getControls();
+        prev ? externalAPI.prev() : externalAPI.setPosition(0);
+    };
+    const handleNext = () => {
+        externalAPI.next();
+    };
+    const handleSeek = (details) => {
+        const { seekTime } = details;
+        externalAPI.setPosition(seekTime);
+    };
 
-    externalAPI.on(externalAPI.EVENT_TRACK, () => {
+    /**
+     * @param {ExternalAPI~TrackInfo} track
+     * @returns {MediaMetadata}
+     */
+    const getTrackMediaMetadata = (track) => {
+        const coverUrl =
+            track.cover && `https://${track.cover.replace("%%", "200x200")}`;
+        const cover = coverUrl && {
+            src: coverUrl,
+            sizes: "200x200",
+        };
+        const artwork = [cover].filter(Boolean);
+
+        const album = track.album ? track.album.title : "";
+        const artist = track.artists.map((a) => a.title).join(", ");
+        const title = track.title || "";
+
+        return new MediaMetadata({
+            artwork,
+            artist,
+            album,
+            title,
+        });
+    };
+
+    const updateMediaSessionMetadata = () => {
         const track = externalAPI.getCurrentTrack();
-        navigator.mediaSession.metadata = new MediaMetadata({
-            title: track.title || "",
-            artist: track.artists.map((a) => a.title).join(", "),
-            album: track.album ? track.album.title : "",
-            artwork: track.cover
-                ? [
-                      {
-                          src:
-                              "https://" + track.cover.replace("%%", "200x200"),
-                          sizes: "200x200",
-                          type: "image/jpeg",
-                      },
-                  ]
-                : [],
-        });
-    });
+        mediaSession.metadata = getTrackMediaMetadata(track);
+    };
 
-    externalAPI.on(externalAPI.EVENT_PROGRESS, () => {
-        const progress = externalAPI.getProgress();
-        navigator.mediaSession.setPositionState({
-            duration: progress.duration,
-            playbackRate: externalAPI.getSpeed(),
-            position: progress.position,
-        });
-    });
-    externalAPI.on(externalAPI.EVENT_STATE, () => {
-        navigator.mediaSession.playbackState = externalAPI.isPlaying()
+    const updateMediaSessionProgress = () => {
+        const { duration, position } = externalAPI.getProgress();
+        const playbackRate = externalAPI.getSpeed();
+        const stateDict = { duration, playbackRate, position };
+        mediaSession.setPositionState(stateDict);
+    };
+
+    const updateMediaSessionPlaybackState = () => {
+        mediaSession.playbackState = externalAPI.isPlaying()
             ? "playing"
             : "paused";
-    });
-}
+    };
+
+    externalAPI.on(externalAPI.EVENT_TRACK, updateMediaSessionMetadata);
+    externalAPI.on(externalAPI.EVENT_PROGRESS, updateMediaSessionProgress);
+    externalAPI.on(externalAPI.EVENT_STATE, updateMediaSessionPlaybackState);
+
+    mediaSession.setActionHandler("play", handlePlay);
+    mediaSession.setActionHandler("pause", handlePause);
+    mediaSession.setActionHandler("seekto", handleSeek);
+    mediaSession.setActionHandler("previoustrack", handlePrev);
+    mediaSession.setActionHandler("nexttrack", handleNext);
+
+    updateMediaSessionMetadata();
+    updateMediaSessionProgress();
+    updateMediaSessionPlaybackState();
+})();
