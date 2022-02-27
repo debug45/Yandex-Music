@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		666157FC27CC1A4B00456E3E /* init.js in Resources */ = {isa = PBXBuildFile; fileRef = 666157FB27CC1A4B00456E3E /* init.js */; };
 		A50AE66527B5B4F900F01BFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50AE66427B5B4F900F01BFA /* AppDelegate.swift */; };
 		A50AE66727B5B4F900F01BFA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50AE66627B5B4F900F01BFA /* MainViewController.swift */; };
 		A50AE66927B5B4FA00F01BFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50AE66827B5B4FA00F01BFA /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		666157FB27CC1A4B00456E3E /* init.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = init.js; sourceTree = "<group>"; };
 		A50AE66127B5B4F900F01BFA /* Я.Музыка.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Я.Музыка.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50AE66427B5B4F900F01BFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A50AE66627B5B4F900F01BFA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		A50AE66327B5B4F900F01BFA /* Yandex Music */ = {
 			isa = PBXGroup;
 			children = (
+				666157FB27CC1A4B00456E3E /* init.js */,
 				A50AE66427B5B4F900F01BFA /* AppDelegate.swift */,
 				A50AE66627B5B4F900F01BFA /* MainViewController.swift */,
 				A53E0B7727B646DE006B2253 /* SettingsViewController.swift */,
@@ -175,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666157FC27CC1A4B00456E3E /* init.js in Resources */,
 				A50AE66927B5B4FA00F01BFA /* Assets.xcassets in Resources */,
 				A570E48B27B6BF5500BF6E73 /* Full.storyboard in Resources */,
 			);
