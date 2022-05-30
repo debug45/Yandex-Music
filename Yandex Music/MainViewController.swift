@@ -184,8 +184,8 @@ extension MainViewController: EventHelper.Target {
 extension MainViewController: NSWindowDelegate {
     
     func windowShouldClose(_ sender: NSWindow) -> Bool {
-        NSApplication.shared.terminate(self)
-        return true
+        NSApp.hide(nil)
+        return false
     }
     
 }
