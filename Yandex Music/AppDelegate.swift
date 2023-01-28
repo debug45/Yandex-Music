@@ -9,9 +9,13 @@ import Cocoa
 
 @main final class AppDelegate: NSObject, NSApplicationDelegate {
     
+    @IBOutlet private weak var backMenuBarItem: NSMenuItem!
+    @IBOutlet private weak var forwardMenuBarItem: NSMenuItem!
+    
     // MARK: Life Cycle
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        EventHelper.instance.addTarget(self)
         UpdateHelper.checkNewVersionAvailability()
         
         guard StorageHelper.isFirstLaunch != false else {
@@ -39,8 +43,20 @@ import Cocoa
     
     // MARK: Builder Actions
     
-    @IBAction private func reloadWebInterfaceMenuBarItemDidSelect(_ sender: Any) {
-        EventHelper.instance.report(.reloadWebInterfaceMenuBarItemDidSelect)
+    @IBAction private func backMenuBarItemDidSelect(_ sender: Any) {
+        EventHelper.instance.report(.backMenuBarItemDidSelect)
+    }
+    
+    @IBAction private func forwardMenuBarItemDidSelect(_ sender: Any) {
+        EventHelper.instance.report(.forwardMenuBarItemDidSelect)
+    }
+    
+    @IBAction private func homeMenuBarItemDidSelect(_ sender: Any) {
+        EventHelper.instance.report(.homeMenuBarItemDidSelect)
+    }
+    
+    @IBAction private func reloadPageMenuBarItemDidSelect(_ sender: Any) {
+        EventHelper.instance.report(.reloadPageMenuBarItemDidSelect)
     }
     
     @IBAction private func codeRepositoryMenuBarItemDidSelect(_ sender: Any) {
@@ -48,7 +64,7 @@ import Cocoa
         NSWorkspace.shared.open(url)
     }
     
-    // MARK: Private Functions
+    // MARK: Functions
     
     @objc private func playPauseDockMenuItemDidSelect(_ sender: Any) {
         let message = EventHelper.Message.globalMediaKeyDidPress(.playPause)
@@ -63,6 +79,24 @@ import Cocoa
     @objc private func nextTrackDockMenuItemDidSelect(_ sender: Any) {
         let message = EventHelper.Message.globalMediaKeyDidPress(.nextTrack)
         EventHelper.instance.report(message)
+    }
+    
+}
+
+// MARK: - Event Helper Target
+
+extension AppDelegate: EventHelper.Target {
+    
+    func handleMessage(_ message: EventHelper.Message) {
+        switch message {
+            case let .updateBackMenuBarItem(isEnabled):
+                backMenuBarItem.action = isEnabled ? #selector(backMenuBarItemDidSelect) : nil
+            case let .updateForwardMenuBarItem(isEnabled):
+                forwardMenuBarItem.action = isEnabled ? #selector(forwardMenuBarItemDidSelect) : nil
+                
+            default:
+                break
+        }
     }
     
 }

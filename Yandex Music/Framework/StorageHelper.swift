@@ -38,7 +38,7 @@ final class StorageHelper {
     }
     
     private static func setToUserDefaults(_ value: String?, forKey key: String) {
-        if let value = value {
+        if let value {
             userDefaults.set(value, forKey: key)
         } else {
             userDefaults.removeObject(forKey: key)

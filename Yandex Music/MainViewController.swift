@@ -39,25 +39,72 @@ final class MainViewController: NSViewController {
         view.window?.delegate = self
         loadingIndicator.startAnimation(self)
         
-        let request = URLRequest(url: homePageURL)
-        webView.load(request)
+        goHome()
+    }
+    
+    // MARK: Builder Actions
+    
+    @IBAction private func tryAgainButtonDidPress(_ sender: Any) {
+        resetVisibleState()
+        reloadPage()
     }
     
     // MARK: Functions
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+        guard (object as? WKWebView) == webView else {
+            return
+        }
+        
+        var message: EventHelper.Message?
+        
+        switch keyPath {
+            case #keyPath(WKWebView.canGoBack):
+                message = .updateBackMenuBarItem(isEnabled: webView.canGoBack)
+            case #keyPath(WKWebView.canGoForward):
+                message = .updateForwardMenuBarItem(isEnabled: webView.canGoForward)
+                
+            default:
+                break
+        }
+        
+        if let message {
+            EventHelper.instance.report(message)
+        }
+    }
+    
     private func configure() {
+        for keyPath in [
+            #keyPath(WKWebView.canGoBack),
+            #keyPath(WKWebView.canGoForward)
+        ] {
+            webView.addObserver(self, forKeyPath: keyPath, options: [.initial, .new], context: nil)
+        }
+        
         webView.navigationDelegate = self
         webView.uiDelegate = self
         
         EventHelper.instance.addTarget(self)
     }
     
-    private func reloadWebView() {
+    private func goHome() {
+        let request = URLRequest(url: homePageURL)
+        webView.load(request)
+    }
+    
+    private func reloadPage() {
+        if webView.url != nil {
+            webView.reload()
+        } else {
+            goHome()
+        }
+    }
+    
+    private func resetVisibleState() {
         webView.isHidden = true
         errorView.isHidden = true
         
         loadingIndicator.startAnimation(self)
-        webView.reload()
     }
     
     private func clickWebButton(javaScriptClass: String, completion: ((Bool) -> Void)? = nil) {
@@ -91,8 +138,7 @@ extension MainViewController: WKNavigationDelegate {
             case .formSubmitted:
                 if redirectFromLoginToSettingsTraits.allSatisfy({ url.absoluteString.contains($0) }) {
                     DispatchQueue.main.async {
-                        let request = URLRequest(url: self.homePageURL)
-                        webView.load(request)
+                        self.goHome()
                     }
                     
                     result = .cancel
@@ -145,8 +191,24 @@ extension MainViewController: EventHelper.Target {
     
     func handleMessage(_ message: EventHelper.Message) {
         switch message {
-            case .reloadWebInterfaceMenuBarItemDidSelect:
-                reloadWebView()
+            case .backMenuBarItemDidSelect:
+                webView.goBack()
+            case .forwardMenuBarItemDidSelect:
+                webView.goForward()
+                
+            case .homeMenuBarItemDidSelect:
+                if !errorView.isHidden {
+                    resetVisibleState()
+                }
+                
+                goHome()
+                
+            case .reloadPageMenuBarItemDidSelect:
+                if !errorView.isHidden {
+                    resetVisibleState()
+                }
+                
+                reloadPage()
                 
             case let .globalMediaKeyDidPress(mediaKey):
                 switch mediaKey {
@@ -171,9 +233,13 @@ extension MainViewController: EventHelper.Target {
                 
                 webViewStore.fetchDataRecords(ofTypes: dataTypes) { records in
                     webViewStore.removeData(ofTypes: dataTypes, for: records) {
-                        self.reloadWebView()
+                        self.resetVisibleState()
+                        self.goHome()
                     }
                 }
+                
+            default:
+                break
         }
     }
     

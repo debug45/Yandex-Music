@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -109,9 +109,16 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Вид" id="HyV-fh-RgO" userLabel="Nested Menu">
                                     <items>
-                                        <menuItem title="Перезагрузить веб-интерфейс" keyEquivalent="r" id="fhV-5h-lrS" userLabel="Reload Web Interface">
+                                        <menuItem title="Назад" keyEquivalent="[" id="u2p-dp-pDP" userLabel="Back"/>
+                                        <menuItem title="Вперёд" keyEquivalent="]" id="pJi-H7-fm7" userLabel="Forward"/>
+                                        <menuItem title="Домашняя страница" keyEquivalent="H" id="fhV-5h-lrS" userLabel="Home">
                                             <connections>
-                                                <action selector="reloadWebInterfaceMenuBarItemDidSelect:" target="Voe-Tx-rLC" id="NT2-br-Ysa"/>
+                                                <action selector="homeMenuBarItemDidSelect:" target="Voe-Tx-rLC" id="NT2-br-Ysa"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Перезагрузить страницу" keyEquivalent="r" id="KU1-5O-xzW" userLabel="Reload Page">
+                                            <connections>
+                                                <action selector="reloadPageMenuBarItemDidSelect:" target="Voe-Tx-rLC" id="SIS-ca-SJE"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="pgR-7M-eNh"/>
@@ -170,10 +177,15 @@
                         </items>
                     </menu>
                     <connections>
-                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="AwY-Xd-TDP"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Я_Музыка" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Я_Музыка" customModuleProvider="target">
+                    <connections>
+                        <outlet property="backMenuBarItem" destination="u2p-dp-pDP" id="Mds-DB-YG0"/>
+                        <outlet property="forwardMenuBarItem" destination="pJi-H7-fm7" id="IIL-w4-zKj"/>
+                    </connections>
+                </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="562" y="0.0"/>
@@ -218,33 +230,36 @@
                                 <rect key="frame" x="496" y="344" width="32" height="32"/>
                             </progressIndicator>
                             <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKb-WA-ar0" userLabel="Error View">
-                                <rect key="frame" x="317" y="308" width="390" height="104"/>
+                                <rect key="frame" x="272" y="307" width="481" height="107"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyC-Mp-MZh" userLabel="Title Label">
-                                        <rect key="frame" x="18" y="51" width="354" height="33"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Ошибка веб-интерфейса" id="77a-LS-pY9" userLabel="Nested Cell">
+                                        <rect key="frame" x="18" y="54" width="445" height="33"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Не удалось загрузить страницу" id="77a-LS-pY9" userLabel="Nested Cell">
                                             <font key="font" metaFont="systemBold" size="28"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DvN-Sg-yEz" userLabel="Subtitle Label">
-                                        <rect key="frame" x="18" y="20" width="354" height="17"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Нажмите клавиши ⌘R для перезагрузки" id="3iN-h6-que" userLabel="Nested Cell">
-                                            <font key="font" metaFont="system" size="14"/>
-                                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tNw-p6-EVD" userLabel="Try Again Button">
+                                        <rect key="frame" x="162" y="13" width="157" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Повторить попытку" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="G5y-MK-fTZ" userLabel="Nested Cell">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="tryAgainButtonDidPress:" target="XfG-lQ-9wD" id="Rr0-VV-eu1"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="tNw-p6-EVD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RyC-Mp-MZh" secondAttribute="leading" id="2iJ-19-Xgf"/>
+                                    <constraint firstItem="tNw-p6-EVD" firstAttribute="top" secondItem="RyC-Mp-MZh" secondAttribute="bottom" constant="14" id="5Em-df-ZoF"/>
                                     <constraint firstItem="RyC-Mp-MZh" firstAttribute="top" secondItem="wKb-WA-ar0" secondAttribute="top" constant="20" id="9vn-Nz-GYM"/>
-                                    <constraint firstItem="DvN-Sg-yEz" firstAttribute="leading" secondItem="wKb-WA-ar0" secondAttribute="leading" constant="20" id="O3f-am-Sfq"/>
-                                    <constraint firstItem="DvN-Sg-yEz" firstAttribute="trailing" secondItem="wKb-WA-ar0" secondAttribute="trailing" constant="-20" id="Ptf-bH-xLS"/>
+                                    <constraint firstItem="tNw-p6-EVD" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="RyC-Mp-MZh" secondAttribute="trailing" id="IzX-Vi-mFF"/>
+                                    <constraint firstItem="tNw-p6-EVD" firstAttribute="centerX" secondItem="wKb-WA-ar0" secondAttribute="centerX" id="WMg-er-JaX"/>
                                     <constraint firstItem="RyC-Mp-MZh" firstAttribute="trailing" secondItem="wKb-WA-ar0" secondAttribute="trailing" constant="-20" id="XPK-H2-XPp"/>
+                                    <constraint firstItem="tNw-p6-EVD" firstAttribute="bottom" secondItem="wKb-WA-ar0" secondAttribute="bottom" constant="-20" id="dEW-DO-mmV"/>
                                     <constraint firstItem="RyC-Mp-MZh" firstAttribute="leading" secondItem="wKb-WA-ar0" secondAttribute="leading" constant="20" id="mYH-er-z9c"/>
-                                    <constraint firstItem="DvN-Sg-yEz" firstAttribute="bottom" secondItem="wKb-WA-ar0" secondAttribute="bottom" constant="-20" id="oTO-tt-Qwc"/>
-                                    <constraint firstItem="DvN-Sg-yEz" firstAttribute="top" secondItem="RyC-Mp-MZh" secondAttribute="bottom" constant="14" id="wg7-YN-37G"/>
                                 </constraints>
                             </customView>
                         </subviews>

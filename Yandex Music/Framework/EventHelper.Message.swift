@@ -9,9 +9,15 @@ extension EventHelper {
     
     enum Message {
         
-        case reloadWebInterfaceMenuBarItemDidSelect
-        case globalMediaKeyDidPress(_ mediaKey: MediaKey)
+        case updateBackMenuBarItem(isEnabled: Bool)
+        case updateForwardMenuBarItem(isEnabled: Bool)
         
+        case backMenuBarItemDidSelect
+        case forwardMenuBarItemDidSelect
+        case homeMenuBarItemDidSelect
+        case reloadPageMenuBarItemDidSelect
+        
+        case globalMediaKeyDidPress(_ mediaKey: MediaKey)
         case resetBuiltInBrowser
         
     }
