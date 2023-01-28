@@ -17,8 +17,7 @@ import FirebaseCore
     // MARK: Life Cycle
     
     func applicationDidFinishLaunching(_ notification: Notification) {
-        FirebaseApp.configure()
-        Analytics.setAnalyticsCollectionEnabled(true)
+        configureFirebase()
         
         EventHelper.instance.addTarget(self)
         UpdateHelper.checkNewVersionAvailability()
@@ -70,6 +69,27 @@ import FirebaseCore
     }
     
     // MARK: Functions
+    
+    private func configureFirebase() {
+        let secretDataKeys = [
+            "CLIENT_ID",
+            "REVERSED_CLIENT_ID",
+            "API_KEY",
+            "GCM_SENDER_ID",
+            "GOOGLE_APP_ID"
+        ]
+        
+        guard
+            let path = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist"),
+            let existingKeys = NSDictionary(contentsOfFile: path)?.allKeys.compactMap({ $0 as? String }),
+            secretDataKeys.allSatisfy({ existingKeys.contains($0) })
+        else {
+            return
+        }
+        
+        FirebaseApp.configure()
+        Analytics.setAnalyticsCollectionEnabled(true)
+    }
     
     @objc private func playPauseDockMenuItemDidSelect(_ sender: Any) {
         let message = EventHelper.Message.globalMediaKeyDidPress(.playPause)
