@@ -28,15 +28,16 @@ import Cocoa
     
     func applicationDockMenu(_ sender: NSApplication) -> NSMenu? {
         let menu = NSMenu()
+        let localizedString = LocalizedString.DockMenu.self
         
         var selector = #selector(playPauseDockMenuItemDidSelect)
-        menu.addItem(withTitle: "Воспроизведение\u{2009}/\u{2009}пауза", action: selector, keyEquivalent: "")
+        menu.addItem(withTitle: localizedString.playPause, action: selector, keyEquivalent: "")
         
         selector = #selector(nextTrackDockMenuItemDidSelect)
-        menu.addItem(withTitle: "Следующий трек", action: selector, keyEquivalent: "")
+        menu.addItem(withTitle: localizedString.nextTrack, action: selector, keyEquivalent: "")
         
         selector = #selector(previousTrackDockMenuItemDidSelect)
-        menu.addItem(withTitle: "Предыдущий трек", action: selector, keyEquivalent: "")
+        menu.addItem(withTitle: localizedString.previousTrack, action: selector, keyEquivalent: "")
         
         return menu
     }
@@ -60,8 +61,7 @@ import Cocoa
     }
     
     @IBAction private func codeRepositoryMenuBarItemDidSelect(_ sender: Any) {
-        let url = URL(string: "https://github.com/debug45/Yandex-Music")!
-        NSWorkspace.shared.open(url)
+        NSWorkspace.shared.open(Constants.repositoryURL)
     }
     
     // MARK: Functions

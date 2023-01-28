@@ -1,0 +1,58 @@
+/* 
+  Localizable.strings
+  Yandex Music
+
+  Created by Sergey Moskvin on 28.01.2023.
+  
+*/
+
+"Scene.Main.Title" = "Я.Музыка";
+"Scene.Main.Error.Title" = "Не\U00A0удалось загрузить страницу";
+"Scene.Main.Error.TryAgainButton" = "Повторить попытку";
+
+"Scene.Settings.Title" = "Настройки";
+"Scene.Settings.SystemMusicSuppressionCheckbox" = "Блокировать автозапуск системной «Музыки»";
+"Scene.Settings.ResetBrowserButton" = "Сбросить встроенный браузер";
+
+"Alert.Update.Title" = "Доступна новая версия приложения";
+"Alert.Update.Description" = "Хотите узнать, какие изменения в\U00A0неё вошли, и\U00A0скачать обновление?";
+"Alert.Update.Button.ShowDetails" = "Подробнее";
+"Alert.Update.Button.Later" = "Не\U00A0сейчас";
+
+"MainMenu.App" = "Я.Музыка";
+"MainMenu.App.About" = "О\U00A0приложении Я.Музыка";
+"MainMenu.App.Preferences" = "Настройки…";
+"MainMenu.App.Services" = "Службы";
+"MainMenu.App.Hide" = "Скрыть Я.Музыка";
+"MainMenu.App.HideOthers" = "Скрыть остальные";
+"MainMenu.App.ShowAll" = "Показать\U00A0все";
+"MainMenu.App.Quit" = "Завершить Я.Музыка";
+
+"MainMenu.Edit" = "Правка";
+"MainMenu.Edit.Undo" = "Отменить";
+"MainMenu.Edit.Redo" = "Повторить";
+"MainMenu.Edit.Cut" = "Вырезать";
+"MainMenu.Edit.Copy" = "Скопировать";
+"MainMenu.Edit.Paste" = "Вставить";
+"MainMenu.Edit.Delete" = "Удалить";
+"MainMenu.Edit.SelectAll" = "Выбрать\U00A0всё";
+
+"MainMenu.View" = "Вид";
+"MainMenu.View.Back" = "Назад";
+"MainMenu.View.Forward" = "Вперёд";
+"MainMenu.View.Home" = "Домашняя страница";
+"MainMenu.View.ReloadPage" = "Перезагрузить страницу";
+"MainMenu.View.EnterFullScreen" = "Перейти в\U00A0полноэкранный режим";
+
+"MainMenu.Window" = "Окно";
+"MainMenu.Window.Close" = "Закрыть";
+"MainMenu.Window.Minimize" = "Свернуть";
+"MainMenu.Window.Zoom" = "Изменить масштаб";
+"MainMenu.Window.BringAllToFront" = "Все\U00A0окна\U00A0— на\U00A0передний план";
+
+"MainMenu.Help" = "Справка";
+"MainMenu.Help.CodeRepository" = "Репозиторий на\U00A0GitHub";
+
+"DockMenu.PlayPause" = "Воспроизведение\U2009/\U2009пауза";
+"DockMenu.NextTrack" = "Следующий трек";
+"DockMenu.PreviousTrack" = "Предыдущий трек";

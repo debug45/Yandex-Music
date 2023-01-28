@@ -1,0 +1,58 @@
+/*
+  Localizable.strings
+  Yandex Music
+
+  Created by Sergey Moskvin on 28.01.2023.
+  
+*/
+
+"Scene.Main.Title" = "Yandex Music";
+"Scene.Main.Error.Title" = "Failed to load the page";
+"Scene.Main.Error.TryAgainButton" = "Try again";
+
+"Scene.Settings.Title" = "Settings";
+"Scene.Settings.SystemMusicSuppressionCheckbox" = "Prevent autorun of the ”Music“ system app";
+"Scene.Settings.ResetBrowserButton" = "Reset built-in browser";
+
+"Alert.Update.Title" = "A new app version is available";
+"Alert.Update.Description" = "Do you want to find out what changes does it include and download the update?";
+"Alert.Update.Button.ShowDetails" = "Show details";
+"Alert.Update.Button.Later" = "Later";
+
+"MainMenu.App" = "Yandex Music";
+"MainMenu.App.About" = "About Yandex Music";
+"MainMenu.App.Preferences" = "Settings…";
+"MainMenu.App.Services" = "Services";
+"MainMenu.App.Hide" = "Hide Yandex Music";
+"MainMenu.App.HideOthers" = "Hide Others";
+"MainMenu.App.ShowAll" = "Show All";
+"MainMenu.App.Quit" = "Quit Yandex Music";
+
+"MainMenu.Edit" = "Edit";
+"MainMenu.Edit.Undo" = "Undo";
+"MainMenu.Edit.Redo" = "Redo";
+"MainMenu.Edit.Cut" = "Cut";
+"MainMenu.Edit.Copy" = "Copy";
+"MainMenu.Edit.Paste" = "Paste";
+"MainMenu.Edit.Delete" = "Delete";
+"MainMenu.Edit.SelectAll" = "Select All";
+
+"MainMenu.View" = "View";
+"MainMenu.View.Back" = "Back";
+"MainMenu.View.Forward" = "Forward";
+"MainMenu.View.Home" = "Home";
+"MainMenu.View.ReloadPage" = "Reload Page";
+"MainMenu.View.EnterFullScreen" = "Enter Full Screen";
+
+"MainMenu.Window" = "Window";
+"MainMenu.Window.Close" = "Close";
+"MainMenu.Window.Minimize" = "Minimise";
+"MainMenu.Window.Zoom" = "Zoom";
+"MainMenu.Window.BringAllToFront" = "Bring All to Front";
+
+"MainMenu.Help" = "Help";
+"MainMenu.Help.CodeRepository" = "Repository on GitHub";
+
+"DockMenu.PlayPause" = "Play\U2009/\U2009Pause";
+"DockMenu.NextTrack" = "Next track";
+"DockMenu.PreviousTrack" = "Previous track";

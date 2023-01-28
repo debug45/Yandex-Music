@@ -17,6 +17,8 @@ final class SettingsViewController: NSViewController {
     
     override func viewWillAppear() {
         super.viewWillAppear()
+        
+        view.window?.title = LocalizedString.Scene.Settings.title
         systemMusicSuppressionCheckbox.state = TerminalHelper.checkIsSystemMusicAppLaunchAgentLoaded() == false ? .on : .off
         
         guard isFirstAppearance else {

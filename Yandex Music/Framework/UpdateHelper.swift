@@ -18,8 +18,7 @@ final class UpdateHelper {
     static func checkNewVersionAvailability() {
         DispatchQueue.global(qos: .utility).async {
             guard
-                let url = URL(string: "https://raw.githubusercontent.com/debug45/Yandex-Music/master/Repository/ActualVersion.txt"),
-                let response = try? String(contentsOf: url),
+                let response = try? String(contentsOf: Constants.actualVersionDataURL),
                 
                 let newVersion = Int(response),
                 let currentVersion = getCurrentVersion(),
@@ -33,16 +32,17 @@ final class UpdateHelper {
                 let alert = NSAlert()
                 alert.alertStyle = .warning
                 
-                alert.messageText = "Доступна новая версия приложения"
-                alert.informativeText = "Хотите узнать, какие изменения в\u{00A0}неё вошли?"
+                let localizedString = LocalizedString.Alert.Update.self
                 
-                alert.addButton(withTitle: "Подробнее")
-                alert.addButton(withTitle: "Не сейчас")
+                alert.messageText = localizedString.title
+                alert.informativeText = localizedString.description
+                
+                alert.addButton(withTitle: localizedString.Button.showDetails)
+                alert.addButton(withTitle: localizedString.Button.later)
                 
                 switch alert.runModal() {
                     case .alertFirstButtonReturn:
-                        let url = URL(string: "https://github.com/debug45/Yandex-Music/releases")!
-                        NSWorkspace.shared.open(url)
+                        NSWorkspace.shared.open(Constants.releasesURL)
                         
                     default:
                         break

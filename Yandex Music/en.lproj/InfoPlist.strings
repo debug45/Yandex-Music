@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Yandex Music
+
+  Created by Sergey Moskvin on 28.01.2023.
+  
+*/
+
+"CFBundleName" = "Yandex Music";

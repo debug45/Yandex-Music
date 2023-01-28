@@ -10,169 +10,273 @@
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
-                <application id="hnw-xV-0zn" customClass="YMApplication" customModule="Я_Музыка" customModuleProvider="target" sceneMemberID="viewController">
-                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                <application id="hnw-xV-0zn" customClass="YMApplication" customModule="Yandex_Music" customModuleProvider="target" sceneMemberID="viewController">
+                    <menu key="mainMenu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Я.Музыка" id="1Xt-HY-uBw" userLabel="App">
+                            <menuItem id="1Xt-HY-uBw" userLabel="App" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Я.Музыка" systemMenu="apple" id="uQy-DD-JDr" userLabel="Nested Menu">
+                                <menu key="submenu" systemMenu="apple" id="uQy-DD-JDr" userLabel="Nested Menu" customClass="YMMenu" customModule="Yandex_Music" customModuleProvider="target">
                                     <items>
-                                        <menuItem title="О приложении Я.Музыка" id="5kV-Vb-QxS" userLabel="About">
+                                        <menuItem id="5kV-Vb-QxS" userLabel="About" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.App.About"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Настройки…" keyEquivalent="," id="BOF-NM-1cW" userLabel="Preferences">
+                                        <menuItem keyEquivalent="," id="BOF-NM-1cW" userLabel="Preferences" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.App.Preferences"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <segue destination="f2M-Y7-Znt" kind="show" identifier="" id="CBG-av-nHg"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
-                                        <menuItem title="Службы" id="NMo-om-nkz" userLabel="Services">
+                                        <menuItem id="NMo-om-nkz" userLabel="Services" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Службы" systemMenu="services" id="hz9-B4-Xy5" userLabel="Nested Menu"/>
+                                            <menu key="submenu" systemMenu="services" id="hz9-B4-Xy5" userLabel="Nested Menu"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.App.Services"/>
+                                            </userDefinedRuntimeAttributes>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Скрыть Я.Музыка" keyEquivalent="h" id="Olw-nP-bQN" userLabel="Hide">
+                                        <menuItem keyEquivalent="h" id="Olw-nP-bQN" userLabel="Hide" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.App.Hide"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Скрыть остальные" keyEquivalent="h" id="Vdr-fp-XzO" userLabel="Hide Others">
+                                        <menuItem keyEquivalent="h" id="Vdr-fp-XzO" userLabel="Hide Others" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.App.HideOthers"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="hideOtherApplications:" target="Ady-hI-5gd" id="VT4-aY-XCT"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Показать все" id="Kd2-mp-pUS" userLabel="Show All">
+                                        <menuItem id="Kd2-mp-pUS" userLabel="Show All" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.App.ShowAll"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="Dhg-Le-xox"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Завершить Я.Музыка" keyEquivalent="q" id="4sb-4s-VLi" userLabel="Quit Blank">
+                                        <menuItem keyEquivalent="q" id="4sb-4s-VLi" userLabel="Quit" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.App.Quit"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
                                         </menuItem>
                                     </items>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.App"/>
+                                    </userDefinedRuntimeAttributes>
                                 </menu>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.App"/>
+                                </userDefinedRuntimeAttributes>
                             </menuItem>
-                            <menuItem title="Правка" id="5QF-Oa-p0T" userLabel="Edit">
+                            <menuItem id="5QF-Oa-p0T" userLabel="Edit" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Правка" id="W48-6f-4Dl" userLabel="Nested Menu">
+                                <menu key="submenu" id="W48-6f-4Dl" userLabel="Nested Menu" customClass="YMMenu" customModule="Yandex_Music" customModuleProvider="target">
                                     <items>
-                                        <menuItem title="Отменить" keyEquivalent="z" id="dRJ-4n-Yzg" userLabel="Undo">
+                                        <menuItem keyEquivalent="z" id="dRJ-4n-Yzg" userLabel="Undo" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Edit.Undo"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="undo:" target="Ady-hI-5gd" id="M6e-cu-g7V"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Повторить" keyEquivalent="Z" id="6dh-zS-Vam" userLabel="Redo">
+                                        <menuItem keyEquivalent="Z" id="6dh-zS-Vam" userLabel="Redo" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Edit.Redo"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="redo:" target="Ady-hI-5gd" id="oIA-Rs-6OD"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="WRV-NI-Exz"/>
-                                        <menuItem title="Вырезать" keyEquivalent="x" id="uRl-iY-unG" userLabel="Cut">
+                                        <menuItem keyEquivalent="x" id="uRl-iY-unG" userLabel="Cut" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Edit.Cut"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="cut:" target="Ady-hI-5gd" id="YJe-68-I9s"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Скопировать" keyEquivalent="c" id="x3v-GG-iWU" userLabel="Copy">
+                                        <menuItem keyEquivalent="c" id="x3v-GG-iWU" userLabel="Copy" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Edit.Copy"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="copy:" target="Ady-hI-5gd" id="G1f-GL-Joy"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Вставить" keyEquivalent="v" id="gVA-U4-sdL" userLabel="Paste">
+                                        <menuItem keyEquivalent="v" id="gVA-U4-sdL" userLabel="Paste" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Edit.Paste"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="paste:" target="Ady-hI-5gd" id="UvS-8e-Qdg"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Удалить" id="pa3-QI-u2k" userLabel="Delete">
+                                        <menuItem id="pa3-QI-u2k" userLabel="Delete" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Edit.Delete"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="delete:" target="Ady-hI-5gd" id="0Mk-Ml-PaM"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Выбрать всё" keyEquivalent="a" id="Ruw-6m-B2m" userLabel="Select All">
+                                        <menuItem keyEquivalent="a" id="Ruw-6m-B2m" userLabel="Select All" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Edit.SelectAll"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="selectAll:" target="Ady-hI-5gd" id="VNm-Mi-diN"/>
                                             </connections>
                                         </menuItem>
                                     </items>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Edit"/>
+                                    </userDefinedRuntimeAttributes>
                                 </menu>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Edit"/>
+                                </userDefinedRuntimeAttributes>
                             </menuItem>
-                            <menuItem title="Вид" id="H8h-7b-M4v" userLabel="View">
+                            <menuItem id="H8h-7b-M4v" userLabel="View" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Вид" id="HyV-fh-RgO" userLabel="Nested Menu">
+                                <menu key="submenu" id="HyV-fh-RgO" userLabel="Nested Menu" customClass="YMMenu" customModule="Yandex_Music" customModuleProvider="target">
                                     <items>
-                                        <menuItem title="Назад" keyEquivalent="[" id="u2p-dp-pDP" userLabel="Back"/>
-                                        <menuItem title="Вперёд" keyEquivalent="]" id="pJi-H7-fm7" userLabel="Forward"/>
-                                        <menuItem title="Домашняя страница" keyEquivalent="H" id="fhV-5h-lrS" userLabel="Home">
+                                        <menuItem keyEquivalent="[" id="u2p-dp-pDP" userLabel="Back" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.View.Back"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </menuItem>
+                                        <menuItem keyEquivalent="]" id="pJi-H7-fm7" userLabel="Forward" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.View.Forward"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </menuItem>
+                                        <menuItem keyEquivalent="H" id="fhV-5h-lrS" userLabel="Home" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.View.Home"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="homeMenuBarItemDidSelect:" target="Voe-Tx-rLC" id="NT2-br-Ysa"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Перезагрузить страницу" keyEquivalent="r" id="KU1-5O-xzW" userLabel="Reload Page">
+                                        <menuItem keyEquivalent="r" id="KU1-5O-xzW" userLabel="Reload Page" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.View.ReloadPage"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="reloadPageMenuBarItemDidSelect:" target="Voe-Tx-rLC" id="SIS-ca-SJE"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="pgR-7M-eNh"/>
-                                        <menuItem title="Перейти в полноэкранный режим" keyEquivalent="f" id="4J7-dP-txa" userLabel="Enter Full Screen">
+                                        <menuItem keyEquivalent="f" id="4J7-dP-txa" userLabel="Enter Full Screen" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                             <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.View.EnterFullScreen"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="toggleFullScreen:" target="Ady-hI-5gd" id="dU3-MA-1Rq"/>
                                             </connections>
                                         </menuItem>
                                     </items>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.View"/>
+                                    </userDefinedRuntimeAttributes>
                                 </menu>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.View"/>
+                                </userDefinedRuntimeAttributes>
                             </menuItem>
-                            <menuItem title="Окно" id="aUF-d1-5bR" userLabel="Window">
+                            <menuItem id="aUF-d1-5bR" userLabel="Window" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Окно" systemMenu="window" id="Td7-aD-5lo" userLabel="Nested Menu">
+                                <menu key="submenu" systemMenu="window" id="Td7-aD-5lo" userLabel="Nested Menu" customClass="YMMenu" customModule="Yandex_Music" customModuleProvider="target">
                                     <items>
-                                        <menuItem title="Закрыть" keyEquivalent="w" id="DVo-aG-piG" userLabel="Close">
+                                        <menuItem keyEquivalent="w" id="DVo-aG-piG" userLabel="Close" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Window.Close"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Свернуть" keyEquivalent="m" id="OY7-WF-poV" userLabel="Minimize">
+                                        <menuItem keyEquivalent="m" id="OY7-WF-poV" userLabel="Minimize" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Window.Minimize"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Изменить масштаб" id="R4o-n2-Eq4" userLabel="Zoom">
+                                        <menuItem id="R4o-n2-Eq4" userLabel="Zoom" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Window.Zoom"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
-                                        <menuItem title="Все окна — на передний план" id="LE2-aR-0XJ" userLabel="Bring All to Front">
+                                        <menuItem id="LE2-aR-0XJ" userLabel="Bring All to Front" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Window.BringAllToFront"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="arrangeInFront:" target="Ady-hI-5gd" id="DRN-fu-gQh"/>
                                             </connections>
                                         </menuItem>
                                     </items>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Window"/>
+                                    </userDefinedRuntimeAttributes>
                                 </menu>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Window"/>
+                                </userDefinedRuntimeAttributes>
                             </menuItem>
-                            <menuItem title="Справка" id="wpr-3q-Mcd" userLabel="Help">
+                            <menuItem id="wpr-3q-Mcd" userLabel="Help" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Справка" systemMenu="help" id="F2S-fz-NVQ" userLabel="Nested Menu">
+                                <menu key="submenu" systemMenu="help" id="F2S-fz-NVQ" userLabel="Nested Menu" customClass="YMMenu" customModule="Yandex_Music" customModuleProvider="target">
                                     <items>
-                                        <menuItem title="Репозиторий на GitHub" id="FKE-Sm-Kum" userLabel="Code Repository">
+                                        <menuItem id="FKE-Sm-Kum" userLabel="Code Repository" customClass="YMMenuItem" customModule="Yandex_Music" customModuleProvider="target">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Help.CodeRepository"/>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="codeRepositoryMenuBarItemDidSelect:" target="Voe-Tx-rLC" id="kFk-Vq-sCr"/>
                                             </connections>
                                         </menuItem>
                                     </items>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Help"/>
+                                    </userDefinedRuntimeAttributes>
                                 </menu>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="MainMenu.Help"/>
+                                </userDefinedRuntimeAttributes>
                             </menuItem>
                         </items>
                     </menu>
@@ -180,7 +284,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="AwY-Xd-TDP"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Я_Музыка" customModuleProvider="target">
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Yandex_Music" customModuleProvider="target">
                     <connections>
                         <outlet property="backMenuBarItem" destination="u2p-dp-pDP" id="Mds-DB-YG0"/>
                         <outlet property="forwardMenuBarItem" destination="pJi-H7-fm7" id="IIL-w4-zKj"/>
@@ -194,7 +298,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" userLabel="Main Window Controller" sceneMemberID="viewController">
-                    <window key="window" title="Я.Музыка" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Main" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA" userLabel="Window">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Main" animationBehavior="default" tabbingMode="disallowed" id="IQv-IB-iLA" userLabel="Window">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="196" y="240" width="1024" height="720"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -214,7 +318,7 @@
         <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="Я_Музыка" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="Yandex_Music" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl" userLabel="Root View">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="720"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -230,22 +334,28 @@
                                 <rect key="frame" x="496" y="344" width="32" height="32"/>
                             </progressIndicator>
                             <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKb-WA-ar0" userLabel="Error View">
-                                <rect key="frame" x="272" y="307" width="481" height="107"/>
+                                <rect key="frame" x="484" y="307" width="56" height="107"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyC-Mp-MZh" userLabel="Title Label">
-                                        <rect key="frame" x="18" y="54" width="445" height="33"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Не удалось загрузить страницу" id="77a-LS-pY9" userLabel="Nested Cell">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RyC-Mp-MZh" userLabel="Title Label" customClass="YMTextField" customModule="Yandex_Music" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="54" width="20" height="33"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="77a-LS-pY9" userLabel="Nested Cell">
                                             <font key="font" metaFont="systemBold" size="28"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="Scene.Main.Error.Title"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tNw-p6-EVD" userLabel="Try Again Button">
-                                        <rect key="frame" x="162" y="13" width="157" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Повторить попытку" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="G5y-MK-fTZ" userLabel="Nested Cell">
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tNw-p6-EVD" userLabel="Try Again Button" customClass="YMButton" customModule="Yandex_Music" customModuleProvider="target">
+                                        <rect key="frame" x="13" y="13" width="30" height="32"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="G5y-MK-fTZ" userLabel="Nested Cell">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="Scene.Main.Error.TryAgainButton"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="tryAgainButtonDidPress:" target="XfG-lQ-9wD" id="Rr0-VV-eu1"/>
                                         </connections>
@@ -288,7 +398,7 @@
         <scene sceneID="vrw-xY-rnx">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="f2M-Y7-Znt" userLabel="Settings Window Controller" sceneMemberID="viewController">
-                    <window key="window" title="Настройки" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="Settings" tabbingMode="disallowed" id="Um4-fO-chZ" userLabel="Window">
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="Settings" tabbingMode="disallowed" id="Um4-fO-chZ" userLabel="Window">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <rect key="contentRect" x="255" y="323" width="356" height="96"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1728" height="1079"/>
@@ -307,27 +417,33 @@
         <!--Settings View Controller-->
         <scene sceneID="G8K-ct-Qgs">
             <objects>
-                <viewController id="CPF-al-8lP" customClass="SettingsViewController" customModule="Я_Музыка" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CPF-al-8lP" customClass="SettingsViewController" customModule="Yandex_Music" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Zd2-Lv-W1K" userLabel="Root View">
-                        <rect key="frame" x="0.0" y="0.0" width="356" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="356" height="94"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FP9-iG-f4q" userLabel="System Music Suppression Checkbox">
-                                <rect key="frame" x="18" y="59" width="324" height="18"/>
-                                <buttonCell key="cell" type="check" title="Блокировать автозапуск системной «Музыки»" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="CwR-m4-zwz" userLabel="Nested Cell">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FP9-iG-f4q" userLabel="System Music Suppression Checkbox" customClass="YMButton" customModule="Yandex_Music" customModuleProvider="target">
+                                <rect key="frame" x="18" y="58" width="18" height="18"/>
+                                <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="CwR-m4-zwz" userLabel="Nested Cell">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="Scene.Settings.SystemMusicSuppressionCheckbox"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="systemMusicSuppressionCheckboxDidPress:" target="CPF-al-8lP" id="DhO-wl-KIE"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CUR-gj-NHX" userLabel="Reset Browser Button">
-                                <rect key="frame" x="13" y="13" width="231" height="32"/>
-                                <buttonCell key="cell" type="push" title="Сбросить встроенный браузер" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Z4-dR-1Ww" userLabel="Nested Cell">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CUR-gj-NHX" userLabel="Reset Browser Button" customClass="YMButton" customModule="Yandex_Music" customModuleProvider="target">
+                                <rect key="frame" x="13" y="13" width="30" height="32"/>
+                                <buttonCell key="cell" type="push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Z4-dR-1Ww" userLabel="Nested Cell">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleKey" value="Scene.Settings.ResetBrowserButton"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="resetBuiltInBrowserButtonDidPress:" target="CPF-al-8lP" id="YYg-IT-d6S"/>
                                 </connections>

@@ -15,8 +15,16 @@ final class MainViewController: NSViewController {
     @IBOutlet private weak var loadingIndicator: NSProgressIndicator!
     @IBOutlet private weak var errorView: NSView!
     
-    private let homePageURL = URL(string: "https://music.yandex.ru")!
-    private let redirectFromLoginToSettingsTraits = ["music.yandex.ru/settings", "from-passport"]
+    private let homeURL = {
+        let baseDomain = Constants.baseDomains.first(where: { $0.languageCode == Locale.current.languageCode })?.host
+            ?? Constants.baseDomains.first?.host ?? ""
+        
+        return URL(string: "https://music." + baseDomain)!
+    } ()
+    
+    private let allowedDomains = Constants.baseDomains.flatMap {
+        return ["music." + $0.host, "passport." + $0.host]
+    }
     
     private var isFirstAppearance = true
     
@@ -25,6 +33,11 @@ final class MainViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        view.window?.title = LocalizedString.Scene.Main.title
     }
     
     override func viewDidAppear() {
@@ -88,7 +101,7 @@ final class MainViewController: NSViewController {
     }
     
     private func goHome() {
-        let request = URLRequest(url: homePageURL)
+        let request = URLRequest(url: homeURL)
         webView.load(request)
     }
     
@@ -105,6 +118,24 @@ final class MainViewController: NSViewController {
         errorView.isHidden = true
         
         loadingIndicator.startAnimation(self)
+    }
+    
+    private func checkForRedirectionFromLoginToSettings(url: URL) -> Bool {
+        let suitablePaths = Constants.baseDomains.flatMap {
+            let value = "music.\($0.host)/settings"
+            
+            let allowedCharacters = CharacterSet.urlHostAllowed
+            let encoded = value.addingPercentEncoding(withAllowedCharacters: allowedCharacters)!
+            
+            return [
+                value,
+                encoded,
+                encoded.addingPercentEncoding(withAllowedCharacters: allowedCharacters)!
+            ]
+        }
+        
+        let url = url.absoluteString
+        return suitablePaths.contains(where: { url.contains($0) }) && url.contains("from-passport")
     }
     
     private func clickWebButton(javaScriptClass: String, completion: ((Bool) -> Void)? = nil) {
@@ -130,13 +161,13 @@ extension MainViewController: WKNavigationDelegate {
         
         switch navigationAction.navigationType {
             case .linkActivated:
-                if !["music.yandex.ru", "passport.yandex.ru"].contains(url.host) {
+                if !allowedDomains.contains(where: { url.absoluteString.contains($0) }) {
                     NSWorkspace.shared.open(url)
                     result = .cancel
                 }
                 
             case .formSubmitted:
-                if redirectFromLoginToSettingsTraits.allSatisfy({ url.absoluteString.contains($0) }) {
+                if checkForRedirectionFromLoginToSettings(url: url) {
                     DispatchQueue.main.async {
                         self.goHome()
                     }
@@ -159,7 +190,7 @@ extension MainViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         let error = error as NSError
         
-        if error.code == 102, let url = error.userInfo["NSErrorFailingURLKey"] as? URL, redirectFromLoginToSettingsTraits.allSatisfy({ url.absoluteString.contains($0) }) {
+        if error.code == 102, let url = error.userInfo["NSErrorFailingURLKey"] as? URL, checkForRedirectionFromLoginToSettings(url: url) {
             return
         }
         
