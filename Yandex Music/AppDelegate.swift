@@ -6,6 +6,8 @@
 //
 
 import Cocoa
+import FirebaseAnalytics
+import FirebaseCore
 
 @main final class AppDelegate: NSObject, NSApplicationDelegate {
     
@@ -15,6 +17,9 @@ import Cocoa
     // MARK: Life Cycle
     
     func applicationDidFinishLaunching(_ notification: Notification) {
+        FirebaseApp.configure()
+        Analytics.setAnalyticsCollectionEnabled(true)
+        
         EventHelper.instance.addTarget(self)
         UpdateHelper.checkNewVersionAvailability()
         
