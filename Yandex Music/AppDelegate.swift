@@ -81,8 +81,8 @@ import FirebaseCore
         
         guard
             let path = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist"),
-            let existingKeys = NSDictionary(contentsOfFile: path)?.allKeys.compactMap({ $0 as? String }),
-            secretDataKeys.allSatisfy({ existingKeys.contains($0) })
+            let availableKeys = NSDictionary(contentsOfFile: path)?.allKeys.compactMap({ $0 as? String }),
+            secretDataKeys.allSatisfy({ availableKeys.contains($0) })
         else {
             return
         }
